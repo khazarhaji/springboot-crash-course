@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Blog :: Post</title>
+</head>
+<body>
+<div class="container">
+    <h1>Spring Boot Blog Application</h1>
+    <hr>
+    <a th:href="@{'/'}">Home</a>
+
+    <div class="post">
+        <h2 th:text="${post.title}">Title</h2>
+        <h3 th:text="${post.account.firstname}">Author</h3>
+        <h5 th:text="'Published on ' + ${post.createdAt}">Created At</h5>
+        <h5 th:text="'Updated at ' + ${post.modifiedAt}">Updated At</h5>
+        <p th:text="${post.body}">body text</p>
+
+        <ul>
+            <li><a th:href="@{'/posts/' + ${post.id} + '/edit'}">Edit</a></li>
+            <li><a th:href="@{'/posts/' + ${post.id} + '/delete'}">Delete</a></li>
+        </ul>
+    </div>
+
+</div>
+</body>
+</html>
